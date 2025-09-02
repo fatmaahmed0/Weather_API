@@ -27,20 +27,13 @@ if ("geolocation" in navigator) {
     const lon = position.coords.longitude;
     console.log(`Latitude: ${lat}, Longitude: ${lon}`);
 
-    let response = await fetch(
-      `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
-    );
-    let locationData = await response.json();
-
-    const city =
-      locationData.address.city ||
-      locationData.address.town ||
-      locationData.address.village;
+    let response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
+    let {city} = await response.json();
 
     console.log("Detected city:", city);
 
     if (city) {
-      data(city); // استدعاء دالة الطقس أول ما يحدد المدينة
+      data(city);
     }else{
       data('cairo')
     }
@@ -48,9 +41,9 @@ if ("geolocation" in navigator) {
 }else{
   data('cairo')
 }
-async function data(_city) {
+async function data(city) {
   let response = await fetch(
-    `https://api.weatherapi.com/v1/forecast.json?key=95371143bbc245dc84d151139252608&q=${_city}&days=3`
+    `https://api.weatherapi.com/v1/forecast.json?key=95371143bbc245dc84d151139252608&q=${city}&days=3`
   );
   let final = await response.json();
   allData = final;
