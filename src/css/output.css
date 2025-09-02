@@ -488,12 +488,6 @@
   .py-\[20px\] {
     padding-block: 20px;
   }
-  .py-\[30px\] {
-    padding-block: 30px;
-  }
-  .py-\[40px\] {
-    padding-block: 40px;
-  }
   .py-\[50px\] {
     padding-block: 50px;
   }
@@ -680,11 +674,6 @@
       margin-left: calc(var(--spacing) * 9);
     }
   }
-  .md\:ml-10 {
-    @media (width >= 48rem) {
-      margin-left: calc(var(--spacing) * 10);
-    }
-  }
   .md\:block {
     @media (width >= 48rem) {
       display: block;
@@ -739,16 +728,6 @@
       }
     }
   }
-  .md\:gap-y-0 {
-    @media (width >= 48rem) {
-      row-gap: calc(var(--spacing) * 0);
-    }
-  }
-  .md\:gap-y-6 {
-    @media (width >= 48rem) {
-      row-gap: calc(var(--spacing) * 6);
-    }
-  }
   .md\:border-0 {
     @media (width >= 48rem) {
       border-style: var(--tw-border-style);
@@ -794,6 +773,26 @@
     @media (width >= 48rem) {
       font-size: var(--text-lg);
       line-height: var(--tw-leading, var(--text-lg--line-height));
+    }
+  }
+  .md\:text-\[16px\] {
+    @media (width >= 48rem) {
+      font-size: 16px;
+    }
+  }
+  .md\:text-\[17px\] {
+    @media (width >= 48rem) {
+      font-size: 17px;
+    }
+  }
+  .md\:text-\[18px\] {
+    @media (width >= 48rem) {
+      font-size: 18px;
+    }
+  }
+  .md\:text-\[\]16px\] {
+    @media (width >= 48rem) {
+      color: ]16px;
     }
   }
   .md\:hover\:text-blue-500 {

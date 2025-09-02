@@ -96,7 +96,7 @@ function display() {
               </h1>
               <img src=${allData.current.condition.icon} alt="" />
               <h3 class="my-[15px] text-[#009ad8]">${allData.current.condition.text}</h3>
-              <div class="flex pb-2 text-gray-300 md:text-lg">
+              <div class="flex pb-2 text-gray-200 md:text-[17px]">
           <h1 >Sunrise: ${allData.forecast.forecastday[0].astro.sunrise}</h1>
           <h1 class="ml-5 md:ml-9">Sunset: ${allData.forecast.forecastday[0].astro.sunset}</h1>
         </div>
