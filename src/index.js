@@ -41,8 +41,12 @@ if ("geolocation" in navigator) {
 
     if (city) {
       data(city); // استدعاء دالة الطقس أول ما يحدد المدينة
+    }else{
+      data('cairo')
     }
   });
+}else{
+  data('cairo')
 }
 async function data(_city) {
   let response = await fetch(
