@@ -21,6 +21,7 @@ let a='';
 let a1='';
 let a2='';
 
+data('cairo');
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition(async (position) => {
     const lat = position.coords.latitude;
