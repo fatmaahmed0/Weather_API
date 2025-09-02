@@ -75,9 +75,6 @@ async function data(_city) {
   }
   display();
 }
-
-
-
 addEventListener("keyup", async function () {
     var term = we_search.value;
     data(term);
@@ -87,25 +84,28 @@ addEventListener("keyup", async function () {
 function display() {
     let x = "";
     x += `
-
     <div class="bg-gray-700  col-span-12 md:col-span-6 lg:col-span-4 ">  
             <div class="flex justify-between p-2.5 bg-gray-800 text-[#bfc1c8]">
               <h1>${a}</h1>
               <h1>${date} ${z}</h1>
             </div>
-            <div class="px-[20px] py-[30px]">
+            <div class="px-[20px] py-[20px]">
               <h2 class="text-[#bfc1c8]">${allData.location.name}</h2>
               <h1 class="text-[90px] mr-[30px] text-white">
                 ${allData.current.temp_c}<sup>o</sup>C
               </h1>
               <img src=${allData.current.condition.icon} alt="" />
-              <h3 class="my-[20px] text-[#009ad8]">${allData.current.condition.text}</h3>
+              <h3 class="my-[15px] text-[#009ad8]">${allData.current.condition.text}</h3>
+              <div class="flex pb-2 text-gray-300 md:text-lg">
+          <h1 >Sunrise: ${allData.forecast.forecastday[0].astro.sunrise}</h1>
+          <h1 class="ml-5 md:ml-9">Sunset: ${allData.forecast.forecastday[0].astro.sunset}</h1>
+        </div>
               <div class="flex text-[#bfc1c8] text-sm">
                 <span class="mr-5"
-                  ><i class="fa-solid fa-wind"></i> 18 km/h</span
+                  ><i class="fa-solid fa-wind"></i> ${allData.current.wind_kph} km/h</span
                 >
-                <span class="mr-5">
-                  <i class="fa-solid fa-umbrella"></i> 20 %</span
+                <span class="mr-5"
+                 ><i class="fa-solid fa-cloud"></i> ${allData.current.cloud} %</span
                 >
                 <span class="mr-5"
                   ><i class="fa-solid fa-compass"></i> East</span
