@@ -62,10 +62,17 @@ async function data(city) {
   }
   for(var i=0; i<days.length;i++){
     if(f==days[i].slice(0,3)){
-      a=days[i];
-      a1=days[i+1];
-      a2=days[i+2];
-    }
+      if(days[i].slice(0,3)=='Thursday'){
+         a=days[i];
+         a1="Friday";
+         a2="Saturday";
+      }
+      else{
+        a=days[i];
+        a1=days[i+1];
+        a2=days[i+2];
+      }
+      }
   }
   display();
 }
