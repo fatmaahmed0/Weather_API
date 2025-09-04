@@ -72,7 +72,7 @@ async function data(city) {
   }
   for (var i = 0; i < days.length; i++) {
     if (f == days[i].slice(0, 3)) {
-      if (days[i].slice(0, 3) == "Thursday") {
+      if (f == "Thursday") {
         a = days[i];
         a1 = days[0];
         a2 = days[1];
