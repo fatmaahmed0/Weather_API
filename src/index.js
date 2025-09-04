@@ -1,6 +1,14 @@
 let we_search = document.getElementById("search");
 let allData = [];
-let days = ["Friday","Saturday","Sunday", "Monday","Tuesday","Wednesday","Thursday"];
+let days = [
+  "Friday",
+  "Saturday",
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+];
 let date = "";
 let month = [
   "January",
@@ -17,30 +25,32 @@ let month = [
   "December",
 ];
 let z = "";
-let a='';
-let a1='';
-let a2='';
+let a = "";
+let a1 = "";
+let a2 = "";
 
-data('cairo');
+data("cairo");
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition(async (position) => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     console.log(`Latitude: ${lat}, Longitude: ${lon}`);
 
-    let response = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`);
-    let {city} = await response.json();
+    let response = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+    );
+    let { city } = await response.json();
 
     console.log("Detected city:", city);
 
     if (city) {
       data(city);
-    }else{
-      data('cairo')
+    } else {
+      data("cairo");
     }
   });
-}else{
-  data('cairo')
+} else {
+  data("cairo");
 }
 async function data(city) {
   let response = await fetch(
@@ -60,31 +70,30 @@ async function data(city) {
       break;
     }
   }
-  for(var i=0; i<days.length;i++){
-    if(f==days[i].slice(0,3)){
-      if(days[i].slice(0,3)=='Thursday'){
-         a=days[i];
-         a1="Friday";
-         a2="Saturday";
+  for (var i = 0; i < days.length; i++) {
+    if (f == days[i].slice(0, 3)) {
+      if (days[i].slice(0, 3) == "Thursday") {
+        a = days[i];
+        a1 = "Friday";
+        a2 = "Saturday";
+      } else {
+        a = days[i];
+        a1 = days[i + 1];
+        a2 = days[i + 2];
       }
-      else{
-        a=days[i];
-        a1=days[i+1];
-        a2=days[i+2];
-      }
-      }
+    }
   }
   display();
 }
 addEventListener("keyup", async function () {
-    var term = we_search.value;
-    data(term);
-    console.log(term);
+  var term = we_search.value;
+  data(term);
+  console.log(term);
 });
 
 function display() {
-    let x = "";
-    x += `
+  let x = "";
+  x += `
     <div class="bg-gray-700  col-span-12 md:col-span-6 lg:col-span-4 ">  
             <div class="flex justify-between p-2.5 bg-gray-800 text-[#bfc1c8]">
               <h1>${a}</h1>
@@ -92,7 +101,7 @@ function display() {
             </div>
             <div class="px-[20px] py-[20px]">
               <h2 class="text-[#bfc1c8]">${allData.location.name}</h2>
-              <h1 class="text-[70px] md:text-[90px] mr-[30px] text-white">
+              <h1 class="text-[80px] md:text-[90px] mr-[30px] text-white">
                 ${allData.current.temp_c}<sup>o</sup>C
               </h1>
               <img src=${allData.current.condition.icon} alt="" />
