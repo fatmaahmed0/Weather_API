@@ -516,6 +516,9 @@
   .text-\[80px\] {
     font-size: 80px;
   }
+  .text-\[85px\] {
+    font-size: 85px;
+  }
   .font-medium {
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
