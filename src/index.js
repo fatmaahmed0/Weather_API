@@ -74,8 +74,8 @@ async function data(city) {
     if (f == days[i].slice(0, 3)) {
       if (days[i].slice(0, 3) == "Thursday") {
         a = days[i];
-        a1 = "Friday";
-        a2 = "Saturday";
+        a1 = days[0];
+        a2 = days[1];
       } else {
         a = days[i];
         a1 = days[i + 1];
