@@ -92,7 +92,7 @@ function display() {
             </div>
             <div class="px-[20px] py-[20px]">
               <h2 class="text-[#bfc1c8]">${allData.location.name}</h2>
-              <h1 class="text-[90px] mr-[30px] text-white">
+              <h1 class="text-[70px] md:text-[90px] mr-[30px] text-white">
                 ${allData.current.temp_c}<sup>o</sup>C
               </h1>
               <img src=${allData.current.condition.icon} alt="" />
